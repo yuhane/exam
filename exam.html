@@ -1,20 +1,19 @@
-document.getElementById('calculateButton').addEventListener('click', calculateDays);
-
-function calculateDays() {
-    const datePicker = document.getElementById('datePicker');
-    const selectedDate = new Date(datePicker.value);
-    const currentDate = new Date();
-    
-    const eventName = document.getElementById('eventName').value;
-    
-    const timeDifference = selectedDate - currentDate;
-    const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    
-    if (daysDifference === 0) {
-        document.getElementById('result').textContent = `今日は${eventName}です！`;
-    } else if (daysDifference < 0) {
-        document.getElementById('result').textContent = `過去の日付です。`;
-    } else {
-        document.getElementById('result').textContent = `${eventName}まであと${daysDifference}日`;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日付カウンター</title>
+    <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+    <h1>日付カウンター</h1>
+    <label for="datePicker">日付を選択してください:</label>
+    <input type="date" id="datePicker">
+    <label for="eventName">イベント名を入力してください:</label>
+    <input type="text" id="eventName">
+    <button id="calculateButton">計算</button>
+    <p id="result"></p>
+    <script src="exam.js"></script>
+</body>
+</html>
